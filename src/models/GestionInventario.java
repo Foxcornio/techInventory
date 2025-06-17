@@ -47,18 +47,23 @@ public class GestionInventario {
         imprimirDetalles(productoEncontrado); // llamamos a nuestra funcion imprimirDetalles y le pasamos el objeto del cual deseamos los detalles.
         return productoEncontrado; // Retornamos el objetoEncontrado para que trabajen con el mismo de ser necesario.
     }
+    
     public Float valorTotalInventario(){
-        Float valorTotal = 0.0f;
-        valorTotal = this.listaProductos.stream().map(producto -> producto.calcularValorInventario()).reduce(0.0f, Float::sum);
-        return valorTotal;
+        Float valorTotal = 0.0f; // Declaramos una variable de tipo Float para almacenar el valorTotal de la suma.
+        valorTotal = this.listaProductos.stream().map(producto -> producto.calcularValorInventario()).reduce(0.0f, Float::sum); // stream() :: Saca todos los productos de la pila uno por uno para trabajarlos.
+        // map :: genera un nuevo Stream y lo retorna al concluir la operacion interna. Esto es escencial ya que en ningun momento se toma el valor directamente del objeto Producto, se toma una copia del resultado de ejecutar el metodo calcularValorInventario() y se transforma en un Stream.
+        // reduce :: El metodo reduce() sumara los elementos del Stream que reciba del metodo map() y almacenara el resultado de la suma en sum, la variable sum se inicializa en 0.0f, se retorna el resultado de la suma y se almacena en valorTotal.
+        return valorTotal; // retornamos valorTotal
     }
-    private void imprimirDetalles(Producto productoEncontrado){
-        String detallesProducto = "";
-        detallesProducto = "Nombre del producto : "+productoEncontrado.getNombre() + "\nCantidad actual en el inventario : " + productoEncontrado.getCantidad()+ "\nPrecio unitario : " + productoEncontrado.getPrecio();
-        System.out.println(detallesProducto);
+    
+    private void imprimirDetalles(Producto productoEncontrado){ // solicita un objeto de tipo Producto
+        String detallesProducto = ""; // declaramos una variable de tipo String vacia, que almacenara los detalles del producto.
+        detallesProducto = "Nombre del producto : "+productoEncontrado.getNombre() + "\nCantidad actual en el inventario : " + productoEncontrado.getCantidad()+ "\nPrecio unitario : " + productoEncontrado.getPrecio(); // Llamamos a los netodos get de Producto para recolectar los atributos nombre, pregio y cantidad, concatenamos el resultado de cada metodo get a la cadena de texto detallesProducto.
+        System.out.println(detallesProducto); // Imprimimos en pantalla la cadena de texto detallesProducto.
     }
-    public Integer getCantidadElementos(){
-        Integer cantidad = this.listaProductos.size();   
-        return cantidad;
+    
+    public Integer getCantidadElementos(){ 
+        Integer cantidad = this.listaProductos.size(); // creamos una variable de tipo Integer y la inicializamos con el valor retornado por el metodo size() de nuestra listaProductos.
+        return cantidad; // retornamos la cantidad de elementos actuales.
     }
 }
