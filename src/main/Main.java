@@ -21,6 +21,10 @@ public class Main {
         Scanner entrada = new Scanner(System.in);
         // Creamos un dato de tipo opcion que almacenara la aopcion a elegir por el usuario, la inicialzamos en 0.
         Integer opcion = 0;
+        
+        agregarNuevoProducto(1,"Cable 5cat amarillo 10m",12.50f,300,inventario);
+        agregarNuevoProducto(2,"Cable 5cat negro 15m",24.50f,300,inventario);
+        agregarNuevoProducto(3,"Cable 5cat azul 20m",32.50f,300,inventario);
         do{ // con un ciclo do-while comenzamos el ciclo del programa
             System.out.println(instrucciones()); // Mandamos a imprimir en pantalla las instrucciones las cuales las obtendremos con la funcion instrucciones().
             opcion = getIntegerInput(entrada, "Seleccionar una opcion."); // A opcion le asignamos el valor que retorne getIntegerInput, en caso de que el usuario introduzca una valor invalido mostrara el mensaje que pasamos como parametro.

@@ -21,7 +21,16 @@ public class GestionInventario {
     }
 
     public Boolean agregar(Producto producto){ // La función agregar solicita un Producto para ser utilizada
-        return this.listaProductos.add(producto); // .add es un metodo de la interfaz List el cual nos permite agregar un elemento al final y devuelve un boolean (true si fue posible/false si no fue posible)
+        Producto busqueda = buscarId(producto.getId()); // Buscamos el id para verificar que no exista en la lista 
+        if(busqueda.getPrecio().equals(0.0f)){ // Si el precio es igual a 0.0f significa que no existe
+            System.out.println("\nAgregando producto al inventario.\n");// Notificamos que el producto se agregara al inventario.
+            return this.listaProductos.add(producto); // .add es un metodo de la interfaz List el cual nos permite agregar un elemento al final y devuelve un boolean (true si fue posible/false si no fue posible)
+        }
+        Integer cantidadElementos = getCantidadElementos(); // Traemos la cantidad de elementos de la lista
+        ++cantidadElementos; // aumentamos la cantidad en 1
+        System.out.println("\nEste ID ya existe usa uno diferente."); // Notificamos que ya existe el id
+        System.out.println("Actualmente existen "+getCantidadElementos()+" productos uno de ellos utiliza el ID, porfavor usa el ID : "+cantidadElementos); // Mostramos el numero de elementos existente y recomendamos que ID usar para el nuevo producto.
+        return false; // retornamos false para indicar que hubo un error
     }
 
     public Producto buscarId(Integer id){ // La funcion buscarId solicita un Integer para ser utilizado en la busqueda
