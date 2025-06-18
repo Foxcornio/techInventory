@@ -11,8 +11,8 @@
         1.- Acciones a implementar:
             [x]  Editar la cantidad de productos del inventario.(actualizarCantidad)
             [x] Calcular el costo total de un lote de producto. (calcularValorInventario)
-        1.- [] Tener almenos 3 instancias de clase Producto con datos iniciales diferentes.
-        1.- [] Mostrar cómo invocar los metodos (actualizarCantidad y calcularValorInventario).
+        1.- [x] Tener almenos 3 instancias de clase Producto con datos iniciales diferentes.
+        1.- [x] Mostrar cómo invocar los metodos (actualizarCantidad y calcularValorInventario).
         1.- [x] Diseñar una clase adicional que utilice una lista de objetos Producto para administrar el inventario (GestionarInventario).
         1.- Metodos GestionarInventario:
             [x] agregar : Debe agregar un nuevo producto al inventario.
@@ -23,7 +23,7 @@
             [x] Identacion consistente.
             [x] Espacios en blanco entre bloques logicos.
             [x] Nombre de variables y metodos que sean descriptivos.
-            [] Incluir comentarios que expliquen cada parte del programa.
+            [x] Incluir comentarios que expliquen cada parte del programa.
         1.- Metodo main:
             [x] Agregar un producto nuevo al inventario.
             [x] Actualizar la cantidad de productos existente.
